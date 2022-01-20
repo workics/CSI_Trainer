@@ -1,0 +1,54 @@
+# .vscode/c_cpp_properties.json
+{
+    "configurations": [
+        {
+            "name": "ESP32-Ubuntu",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/build",
+                "${env:IDF_PATH}/components/**",
+                "/home/idktech/esp/esp-idf/components/driver/include/driver",
+                "/home/idktech/esp/esp-idf/components/nvs_flash/include"
+            ],
+            "defines": [],
+            "compilerPath": "/home/idktech/.espressif/tools/xtensa-esp32-elf/esp-2019r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}
+
+# .vscode/tasks.json
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "isBackground": true,
+            "command": "idf.py build",
+            "group":{
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+        {
+            "label": "flash",
+            "type": "shell",
+            "isBackground": true,
+            "command": "idf.py -p /dev/ttyUSB0 -b 1152000 flash"
+            
+        }
+        {
+            "label": "monitor",
+            "type": "shell",
+            "isBackground": true,
+            "command": "idf.py monitor"
+            
+        }
+    ]
+}
